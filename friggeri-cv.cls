@@ -27,7 +27,7 @@
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
 
-\ifdefined\@cv@print
+%\ifdefined\@cv@print
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
   \colorlet{purple}{gray}
@@ -35,10 +35,10 @@
   \colorlet{blue}{gray}
   \colorlet{fillheader}{white}
   \colorlet{header}{gray}
-\else
-  \colorlet{fillheader}{gray}
-  \colorlet{header}{white}
-\fi
+%\else
+%  \colorlet{fillheader}{gray}
+%  \colorlet{header}{white}
+%\fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
 
@@ -93,7 +93,7 @@
 \RequirePackage{parskip}
 
 \newcounter{colorCounter}
-\def\@sectioncolor#1#2#3{%
+\def\@sectioncolor{%
   {%
     \color{%
       \ifcase\value{colorCounter}%
@@ -103,7 +103,7 @@
         green\or%
         purple\else%
         headercolor\fi%
-    } #1#2#3%
+    } %
   }%
   \stepcounter{colorCounter}%
 }
@@ -138,8 +138,9 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
-    \textbf{#2}%
+  \parbox[t]{14.8cm}{%
+    \textbf{#1}\\
+    {\footnotesize\addfontfeature{Color=lightgray} #2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
@@ -157,13 +158,14 @@
   \let\oldsection\section
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+      \vspace{1.0mm}
   }
-  \begin{textblock}{3.6}(1.5, 4.33)
-  \begin{flushright}
+  \begin{textblock}{4.6}(1.4, 4.33)
+  \begin{flushleft}
   \obeycr
 }{%
   \restorecr
-  \end{flushright}
+  \end{flushleft}
   \end{textblock}
   \let\section\oldsection
 }
