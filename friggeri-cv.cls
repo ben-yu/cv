@@ -143,7 +143,7 @@
     {\footnotesize\addfontfeature{Color=lightgray} #2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+    #4\vspace{1.5\parsep}%
   }\\}
 
 
