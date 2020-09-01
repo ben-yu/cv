@@ -128,6 +128,8 @@
 
 \pagestyle{empty}
 
+\RequirePackage{enumitem}
+\setitemize{noitemsep, leftmargin=\parindent, labelindent=\parindent}
 
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
@@ -144,13 +146,14 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  \parbox[t]{14.8cm}{%
+  \parbox[t]{13.8cm}{%
     \textbf{#1}\\
     {\footnotesize\addfontfeature{Color=lightgray} #2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{1.5\parsep}%
   }\\}
+
 
 
 %%%%%%%%%%%%%%
